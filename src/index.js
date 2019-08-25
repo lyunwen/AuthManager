@@ -12,8 +12,8 @@ import Mapping from "./auth/Mapping";
 
 class AuthManager extends React.Component {
   state = {
-    userList: [],
-    authList: [],
+    userList: ['风控员工1','风控员工2','风控员工3','财务1','财务2'],
+    authList: ['审批小微商户入驻风险','审批香港买单商户入驻风险','审批马来商户入驻财务情况'],
     groupList: [],
 
     authMappingGroupList: [],
@@ -188,10 +188,10 @@ class AuthManager extends React.Component {
         <div style={{ background: '#ECECEC', padding: '30px' }}>
           <Row gutter={16}>
             <Col span={8}>
-              <User userAdd={this.userAdd} userDel={this.userDel} userList={this.state.userList} />
+              <Group groupAdd={this.groupAdd} groupDel={this.groupDel} groupList={this.state.groupList} />
             </Col>
             <Col span={8}>
-              <Group groupAdd={this.groupAdd} groupDel={this.groupDel} groupList={this.state.groupList} />
+              <User userAdd={this.userAdd} userDel={this.userDel} userList={this.state.userList} />
             </Col>
             <Col span={8}>
               <Auth authAdd={this.authAdd} authDel={this.authDel} authList={this.state.authList}></Auth>
@@ -200,21 +200,6 @@ class AuthManager extends React.Component {
         </div>
         <div style={{ background: '#ECECEC', padding: '30px' }}>
           <Row gutter={16}>
-            <Col span={12}>
-              <AuthMappingGroup
-                authList={this.state.authList}
-                groupList={this.state.groupList}
-
-                authMappingGroupList={this.state.authMappingGroupList}
-
-                authMappingAuthSelectedItems={this.state.authMappingAuthSelectedItems}
-                updateAuthMappingAuthSelectedItems={this.updateAuthMappingAuthSelectedItems}
-                authMappingGroupSelectedItems={this.state.authMappingGroupSelectedItems}
-                updateAuthMappingGroupSelectedItems={this.updateAuthMappingGroupSelectedItems}
-
-                mappingAuth={this.mappingAuth}
-              />
-            </Col>
             <Col span={12}>
               <UserMappingGroup
                 userList={this.state.userList}
@@ -228,6 +213,21 @@ class AuthManager extends React.Component {
                 updateUserMappingGroupSelectedItems={this.updateUserMappingGroupSelectedItems}
 
                 mappingUser={this.mappingUser}
+              />
+            </Col>
+            <Col span={12}>
+              <AuthMappingGroup
+                authList={this.state.authList}
+                groupList={this.state.groupList}
+
+                authMappingGroupList={this.state.authMappingGroupList}
+
+                authMappingAuthSelectedItems={this.state.authMappingAuthSelectedItems}
+                updateAuthMappingAuthSelectedItems={this.updateAuthMappingAuthSelectedItems}
+                authMappingGroupSelectedItems={this.state.authMappingGroupSelectedItems}
+                updateAuthMappingGroupSelectedItems={this.updateAuthMappingGroupSelectedItems}
+
+                mappingAuth={this.mappingAuth}
               />
             </Col>
           </Row>
