@@ -34,7 +34,7 @@ class Group extends React.Component {
       )}
       {!inputVisible && (
         <Tag onClick={this.inputShow} style={{ background: '#fff', borderStyle: 'dashed' }}>
-          <Icon type="plus" /> Add AuthGroup
+          <Icon type="plus" /> Add Group
           </Tag>
       )}
     </Card>)
