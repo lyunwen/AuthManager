@@ -13,7 +13,7 @@ import Mapping from "./auth/Mapping";
 class AuthManager extends React.Component {
   state = {
     userList: ['风控员工1','风控员工2','风控员工3','财务1','财务2'],
-    authList: ['审批小微商户入驻风险','审批香港买单商户入驻风险','审批马来商户入驻财务情况'],
+    authList: ['小微风险审核','马来风险审核','香港风险审核','境外财务审核'],
     groupList: [],
 
     authMappingGroupList: [],
@@ -31,10 +31,12 @@ class AuthManager extends React.Component {
   }
 
   userAdd = (name) => {
-    let indexOf = this.state.userList.indexOf(name)
-    if (indexOf == -1) {
-      this.state.userList.push(name)
-      this.setState({})
+    if(name){
+      let indexOf = this.state.userList.indexOf(name)
+      if (indexOf == -1) {
+        this.state.userList.push(name)
+        this.setState({})
+      }
     }
   }
   userDel = (name) => {
@@ -55,10 +57,12 @@ class AuthManager extends React.Component {
   }
 
   authAdd = (name) => {
-    let indexOf = this.state.authList.indexOf(name)
-    if (indexOf == -1) {
-      this.state.authList.push(name)
-      this.setState({})
+    if(name){
+      let indexOf = this.state.authList.indexOf(name)
+      if (indexOf == -1) {
+        this.state.authList.push(name)
+        this.setState({})
+      }
     }
   }
   authDel = (name) => {
@@ -80,10 +84,12 @@ class AuthManager extends React.Component {
 
 
   groupAdd = (name) => {
-    let indexOf = this.state.groupList.indexOf(name)
-    if (indexOf == -1) {
-      this.state.groupList.push(name)
-      this.setState({})
+    if(name){
+      let indexOf = this.state.groupList.indexOf(name)
+      if (indexOf == -1) {
+        this.state.groupList.push(name)
+        this.setState({})
+      }
     }
   }
   groupDel = (name) => {
@@ -187,20 +193,10 @@ class AuthManager extends React.Component {
       <div>
         <div style={{ background: '#ECECEC', padding: '30px' }}>
           <Row gutter={16}>
-            <Col span={8}>
-              <Group groupAdd={this.groupAdd} groupDel={this.groupDel} groupList={this.state.groupList} />
-            </Col>
-            <Col span={8}>
+            <Col span={4}>
               <User userAdd={this.userAdd} userDel={this.userDel} userList={this.state.userList} />
             </Col>
-            <Col span={8}>
-              <Auth authAdd={this.authAdd} authDel={this.authDel} authList={this.state.authList}></Auth>
-            </Col>
-          </Row>
-        </div>
-        <div style={{ background: '#ECECEC', padding: '30px' }}>
-          <Row gutter={16}>
-            <Col span={12}>
+            <Col span={6}>
               <UserMappingGroup
                 userList={this.state.userList}
                 groupList={this.state.groupList}
@@ -215,7 +211,10 @@ class AuthManager extends React.Component {
                 mappingUser={this.mappingUser}
               />
             </Col>
-            <Col span={12}>
+            <Col span={4}>
+              <Group groupAdd={this.groupAdd} groupDel={this.groupDel} groupList={this.state.groupList} />
+            </Col>
+            <Col span={6}>
               <AuthMappingGroup
                 authList={this.state.authList}
                 groupList={this.state.groupList}
@@ -230,8 +229,11 @@ class AuthManager extends React.Component {
                 mappingAuth={this.mappingAuth}
               />
             </Col>
+            <Col span={4}>
+              <Auth authAdd={this.authAdd} authDel={this.authDel} authList={this.state.authList}></Auth>
+            </Col>
           </Row>
-          </div>
+        </div>
         <div style={{ background: '#ECECEC', padding: '30px' }}>
           
           <Row gutter={16}>

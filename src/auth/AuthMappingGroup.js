@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Tag, Input, Tooltip, Icon, Select, Button } from "antd";
+import { Card, Tag, Input, Tooltip, Icon, Select, Button, Row, Col } from "antd";
 
 
 class AuthGroupMapping extends React.Component {
@@ -15,33 +15,41 @@ class AuthGroupMapping extends React.Component {
       mappingAuth
     } = this.props
     return (<Card title={<span>Auth Mapping Group</span>} bordered={false}>
-      <Select
-        mode="multiple"
-        placeholder="Find Group"
-        value={authMappingGroupSelectedItems}
-        onChange={updateAuthMappingGroupSelectedItems}
-        style={{ width: '30%', margin: '5px' }}
-      >
-        {groupList.map(item => (
-          <Select.Option key={item} value={item}>
-            {item}
-          </Select.Option>
-        ))}
-      </Select>
-      <Select
-        mode="multiple"
-        placeholder="Find Auths"
-        value={authMappingAuthSelectedItems}
-        onChange={updateAuthMappingAuthSelectedItems}
-        style={{ width: '30%', margin: '5px' }}
-      >
-        {authList.map(item => (
-          <Select.Option key={item} value={item}>
-            {item}
-          </Select.Option>
-        ))}
-      </Select>
-      <Button onClick={mappingAuth}>Mapping</Button>
+      <Row>
+        <Col>
+          <Select
+            mode="multiple"
+            placeholder="Find Group"
+            value={authMappingGroupSelectedItems}
+            onChange={updateAuthMappingGroupSelectedItems}
+            style={{ width: '100%', margin: '5px 0' }}
+          >
+            {groupList.map(item => (
+              <Select.Option key={item} value={item}>
+                {item}
+              </Select.Option>
+            ))}
+          </Select>
+        </Col>
+        <Col>
+          <Select
+            mode="multiple"
+            placeholder="Find Auths"
+            value={authMappingAuthSelectedItems}
+            onChange={updateAuthMappingAuthSelectedItems}
+            style={{ width: '100%', margin: '5px 0' }}
+          >
+            {authList.map(item => (
+              <Select.Option key={item} value={item}>
+                {item}
+              </Select.Option>
+            ))}
+          </Select>
+        </Col>
+        <Col>
+          <Button onClick={mappingAuth}>Mapping</Button>
+        </Col>
+      </Row>
     </Card>)
   }
 }
