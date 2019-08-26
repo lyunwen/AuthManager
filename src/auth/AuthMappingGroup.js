@@ -14,7 +14,7 @@ class AuthGroupMapping extends React.Component {
       updateAuthMappingGroupSelectedItems,
       mappingAuth
     } = this.props
-    return (<Card title={<span>Auth Mapping Group</span>} bordered={false}>
+    return (<Card title={<span>Mapping</span>} bordered={false}>
       <Row>
         <Col>
           <Select

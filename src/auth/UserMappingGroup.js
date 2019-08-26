@@ -14,7 +14,7 @@ class UserMappingGroup extends React.Component {
       updateUserMappingGroupSelectedItems,
       mappingUser
     } = this.props
-    return (<Card title={<span>User Mapping Group</span>} bordered={false}>
+    return (<Card title={<span>Mapping</span>} bordered={false}>
       <Row>
         <Col>
           <Select
