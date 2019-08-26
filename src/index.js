@@ -191,8 +191,8 @@ class AuthManager extends React.Component {
   render() {
     return (
       <div>
-        <div style={{ background: '#ECECEC', padding: '30px' }}>
-          <Row gutter={16}>
+        <div style={{ background: '#ECECEC', padding: '10px' }}>
+          <Row gutter={3}>
             <Col span={4}>
               <User userAdd={this.userAdd} userDel={this.userDel} userList={this.state.userList} />
             </Col>
